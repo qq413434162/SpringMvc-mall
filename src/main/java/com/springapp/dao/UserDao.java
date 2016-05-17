@@ -19,16 +19,30 @@ public class UserDao extends GetSqlSessionFactory{
 		// test select
 		User user = userMapper
 				.findByName(name);
-		
-/*
-		User user1 = new User();
-		user1.setName("xl");
-		user1.setAge(22);
-		userMapper.insertUser(user1);
-		sqlSession.commit();
-		*/
 		return user
 				.getName();
+	}
+	
+	public User getUserInfoByUserName(String userName) {
+		SqlSession sqlSession = getSession().openSession();
+		UserMapper userMapper = sqlSession
+				.getMapper(UserMapper.class);
+System.out.println(userName);
+		// test select
+		User user = userMapper
+				.findByName(userName);
+		return user;
+	}
+	
+	public User getUserInfoByUserId(Integer userId) {
+		SqlSession sqlSession = getSession().openSession();
+		UserMapper userMapper = sqlSession
+				.getMapper(UserMapper.class);
+System.out.println(userId);
+		// test select
+		User user = userMapper
+				.findById(userId);
+		return user;
 	}
 
 }

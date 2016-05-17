@@ -8,7 +8,9 @@
  <select id="findByName" parameterType="HashMap" resultType="User">  
   select * from user where name=#{name}  
     </select>  
-     
+      <select id="findById" parameterType="HashMap" resultType="User">  
+  select * from user where id=#{id}  
+    </select> 
     <insert id="insertUser" parameterType="com.springapp.domain.User">  
      insert into user (name,age) value  
      (  
